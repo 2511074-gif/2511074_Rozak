@@ -6,7 +6,87 @@
     <title>KEBAB.POINT - Authentic Kebab Flavors</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* CSS TETAP SAMA */
+         :root {
+            --primary: #e67e22;
+            --secondary: #c0392b;
+            --dark: #2c3e50;
+            --light: #f4f4f4;
+            --accent: #f1c40f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #fff; color: #333; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navbar */
+        .navbar { background: #fff; padding: 10px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo-wrapper { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon { 
+            background: var(--secondary); 
+            color: white; 
+            width: 45px; 
+            height: 45px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 12px; 
+            overflow: hidden;
+        }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-text { font-size: 22px; font-weight: 800; color: var(--dark); letter-spacing: -1px; }
+        .logo-text span { color: var(--secondary); }
+
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero */
+        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200'); background-size: cover; background-position: center; display: flex; align-items: center; color: white; text-align: center; margin-top: 60px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 15px; }
+        .cta-button { background: var(--primary); color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s; }
+
+        /* Menu Section */
+        .section-padding { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2.5rem; position: relative; padding-bottom: 10px; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        .category-title { background: var(--dark); color: white; padding: 10px 20px; display: inline-block; border-radius: 5px; margin-bottom: 25px; margin-top: 20px; }
+
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .menu-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; border: 1px solid #eee; }
+        .menu-card:hover { transform: translateY(-5px); }
+        .menu-card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 15px; text-align: center; }
+        .card-content h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .price { display: block; margin-bottom: 15px; font-size: 1.2rem; font-weight: bold; color: var(--secondary); }
+        .order-button { display: block; background: var(--primary); color: white; padding: 8px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .order-button:hover { background: var(--secondary); }
+
+        /* Galeri */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .gallery-item { height: 200px; border-radius: 10px; overflow: hidden; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Newsletter */
+        .newsletter { background: var(--dark); color: white; padding: 60px 0; text-align: center; }
+        .newsletter-form { margin-top: 25px; }
+        .newsletter-form input { padding: 12px 20px; width: 300px; border-radius: 30px; border: none; outline: none; }
+        .newsletter-form button { padding: 12px 25px; background: var(--primary); color: white; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; margin-left: 10px; }
+
+        /* Footer */
+        footer { background: #1a252f; color: white; padding: 50px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .live-chat { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .newsletter-form input { width: 100%; margin-bottom: 10px; }
+            .newsletter-form button { margin-left: 0; width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -33,6 +113,14 @@
             <h1>KEBAB POINT’S SPECIAL MENU</h1>
             <p>Delicious, Hygienic, and Affordable.</p>
             <a href="#menu" class="cta-button">VIEW PRICE LIST</a>
+        </div>
+    </header> 
+    
+      <section  id="home" class="hero">
+        <div class="container">
+            <h1>Menu Spesial Kebab Point</h1>
+            <p>Lezat, Higienis, dan Terjangkau.</p>
+            <a href="#menu" class="cta-button">LIHAT DAFTAR HARGA</a>
         </div>
     </header>
 
@@ -174,3 +262,4 @@
 
 </body>
 </html>
+
